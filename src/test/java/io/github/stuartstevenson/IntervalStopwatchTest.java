@@ -20,6 +20,6 @@ public class IntervalStopwatchTest {
         }
         stopwatch.stop();
 
-        assertThat(stopwatch.elapsed(TimeUnit.MILLISECONDS)).isNotNull();
+        assertThat(stopwatch.elapsed(TimeUnit.MILLISECONDS)).isGreaterThan(2500);
     }
 }

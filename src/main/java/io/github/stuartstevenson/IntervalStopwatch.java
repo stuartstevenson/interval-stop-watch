@@ -27,6 +27,11 @@ public class IntervalStopwatch {
         stopwatch.stop();
     }
 
+    public void reset() {
+        stopwatch.reset();
+        splits = new ArrayList<Long>();
+    }
+
     public long elapsed(TimeUnit timeUnit) {
         return stopwatch.elapsed(timeUnit);
     }

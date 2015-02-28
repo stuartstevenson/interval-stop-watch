@@ -1,7 +1,8 @@
 apply plugin: 'java'
 
 sourceCompatibility = 1.7
-version = '1.0'
+group = 'io.github.stuartstevenson'
+version = '1.0.0'
 
 repositories {
     mavenCentral()

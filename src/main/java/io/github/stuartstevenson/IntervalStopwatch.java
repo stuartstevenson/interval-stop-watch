@@ -2,13 +2,17 @@ package io.github.stuartstevenson;
 
 import com.google.common.base.Stopwatch;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class IntervalStopwatch {
     private Stopwatch stopwatch;
+    private List<Long> splits;
 
     public IntervalStopwatch(Stopwatch stopwatch) {
         this.stopwatch = stopwatch;
+        splits = new ArrayList<Long>();
     }
 
     public static IntervalStopwatch createUnstarted() {
@@ -28,6 +32,10 @@ public class IntervalStopwatch {
     }
 
     public void split() {
+        splits.add(stopwatch.elapsed(TimeUnit.MILLISECONDS));
+    }
 
+    public List<Long> getSplits() {
+        return splits;
     }
 }

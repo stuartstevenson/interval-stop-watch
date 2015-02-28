@@ -1,6 +1,5 @@
 package io.github.stuartstevenson;
 
-import com.google.common.base.Stopwatch;
 import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -21,5 +20,11 @@ public class IntervalStopwatchTest {
         stopwatch.stop();
 
         assertThat(stopwatch.elapsed(TimeUnit.MILLISECONDS)).isGreaterThan(2500);
+        assertThat(stopwatch.getSplits()).hasSize(5);
+        long lastSplit = 0;
+        for (Long split : stopwatch.getSplits()) {
+            assertThat(split).isGreaterThan(lastSplit);
+            lastSplit = split;
+        }
     }
 }
